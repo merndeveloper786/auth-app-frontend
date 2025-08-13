@@ -88,7 +88,9 @@ export default function DashboardPage() {
       }
 
       const headers = { Authorization: `Bearer ${token}` };
-      const baseURL = "http://localhost:5000/api/users";
+      const baseURL = `${
+        process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"
+      }/users`;
 
       console.log("🔍 Fetching dashboard data...", {
         baseURL,
@@ -124,6 +126,7 @@ export default function DashboardPage() {
         response?: { data?: { error?: string }; status?: number };
         message?: string;
         code?: string;
+        name?: string;
       };
       const errorMessage =
         error.response?.data?.error ||
@@ -131,25 +134,31 @@ export default function DashboardPage() {
         "Failed to fetch dashboard data";
       const statusCode = error.response?.status;
 
+      // More robust error handling for different scenarios
       if (statusCode === 401 || statusCode === 403) {
-        // Clear invalid token and redirect to login
+        // Only clear session if we're sure it's an auth issue
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         setError("Session expired. Please log in again.");
-        // Redirect to login after a short delay
         setTimeout(() => {
           window.location.href = "/signin";
         }, 2000);
       } else if (statusCode === 404) {
         setError(
-          "Dashboard API endpoints not found. Backend may not be running."
+          "Dashboard API endpoints not found. Please check your backend deployment."
         );
-      } else if (error.code === "ECONNREFUSED") {
+      } else if (
+        error.code === "ECONNREFUSED" ||
+        error.name === "NetworkError" ||
+        !statusCode
+      ) {
         setError(
-          "Cannot connect to backend server. Please ensure backend is running on port 5000."
+          "Cannot connect to backend server. Please check your internet connection and try again."
         );
+      } else if (statusCode >= 500) {
+        setError("Server error occurred. Please try again later.");
       } else {
-        setError(`${errorMessage} (Status: ${statusCode || "Unknown"})`);
+        setError(`${errorMessage} (Status: ${statusCode || "Network Error"})`);
       }
     } finally {
       setLoading(false);
@@ -200,7 +209,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* Header */}
         <div className="mb-6 sm:mb-8">
