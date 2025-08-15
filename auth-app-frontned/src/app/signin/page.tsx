@@ -6,15 +6,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { LogIn, Mail, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, LogIn, Mail, Lock, Loader2 } from "lucide-react";
+import { api } from "@/lib/api";
 import PrivateRoute from "@/components/PrivateRoute";
 
 function SignInPageInner() {
@@ -183,7 +178,7 @@ function SignInPageInner() {
               variant="outline"
               className="w-full"
               onClick={() =>
-                (window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`)
+                (window.location.href = api.googleAuth)
               }
               disabled={isLoading}
             >
