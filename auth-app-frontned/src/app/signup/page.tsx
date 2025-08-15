@@ -33,6 +33,7 @@ import {
   EyeOff,
   Loader2,
 } from "lucide-react";
+import { api } from "@/lib/api";
 import PrivateRoute from "@/components/PrivateRoute";
 
 export default function SignUpPage() {
@@ -439,7 +440,7 @@ export default function SignUpPage() {
               variant="outline"
               className="w-full"
               onClick={() =>
-                (window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`)
+                (window.location.href = api.googleAuth)
               }
               disabled={isLoading}
             >
