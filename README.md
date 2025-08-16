@@ -15,11 +15,13 @@ This is the frontend for the authentication system built with Next.js, TypeScrip
 ## Pages
 
 ### Public Pages
+
 - **Home** (`/`) - Landing page with intro and CTA buttons
 - **Sign In** (`/signin`) - Login form with email/password and Google OAuth
 - **Sign Up** (`/signup`) - Registration form with profile picture upload
 
 ### Protected Pages (require authentication)
+
 - **Profile** (`/profile`) - View and edit user profile
 - **Users** (`/users`) - Browse all registered users
 
@@ -32,11 +34,13 @@ This is the frontend for the authentication system built with Next.js, TypeScrip
 ## Setup Instructions
 
 ### 1. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Start Development Server
+
 ```bash
 npm run dev
 ```
@@ -50,65 +54,66 @@ Make sure your backend server is running on `http://localhost:5000` before testi
 ## Project Structure
 
 📁 frontend/
-    ├── 📁 .next/ 🚫 (auto-hidden)
-    ├── 📁 node_modules/ 🚫 (auto-hidden)
-    ├── 📁 public/
-    │   ├── 🖼️ file.svg
-    │   ├── 🖼️ globe.svg
-    │   ├── 🖼️ next.svg
-    │   ├── 🖼️ vercel.svg
-    │   └── 🖼️ window.svg
-    ├── 📁 src/
-    │   ├── 📁 app/
-    │   │   ├── 📁 (auth)/
-    │   │   │   ├── 📁 dashboard/
-    │   │   │   │   └── 📄 page.tsx
-    │   │   │   ├── 📁 profile/
-    │   │   │   │   └── 📄 page.tsx
-    │   │   │   ├── 📁 users/
-    │   │   │   │   ├── 📁 [userId]/
-    │   │   │   │   │   └── 📄 page.tsx
-    │   │   │   │   └── 📄 page.tsx
-    │   │   │   └── 📄 layout.tsx
-    │   │   ├── 📁 complete-profile/
-    │   │   │   └── 📄 page.tsx
-    │   │   ├── 📁 signin/
-    │   │   │   └── 📄 page.tsx
-    │   │   ├── 📁 signup/
-    │   │   │   └── 📄 page.tsx
-    │   │   ├── 🖼️ favicon.ico
-    │   │   ├── 🎨 globals.css
-    │   │   ├── 📄 layout.tsx
-    │   │   └── 📄 page.tsx
-    │   ├── 📁 components/
-    │   │   ├── 📁 ui/
-    │   │   │   ├── 📄 alert.tsx
-    │   │   │   ├── 📄 button.tsx
-    │   │   │   ├── 📄 card.tsx
-    │   │   │   ├── 📄 dropdown-menu.tsx
-    │   │   │   ├── 📄 input.tsx
-    │   │   │   ├── 📄 label.tsx
-    │   │   │   └── 📄 select.tsx
-    │   │   ├── 📄 Navbar.tsx
-    │   │   ├── 📄 PrivateRoute.tsx
-    │   │   ├── 📄 Sidebar.tsx
-    │   │   ├── 📄 ThemeProvider.tsx
-    │   │   └── 📄 ThemeToggle.tsx
-    │   └── 📁 lib/
-    │       ├── 📄 api.ts
-    │       └── 📄 utils.ts
-    ├── 🔒 .env 🚫 (auto-hidden)
-    ├── 📄 .eslintrc.json
-    ├── 🚫 .gitignore
-    ├── 📖 README.md
-    ├── 📄 components.json
-    ├── 📄 eslint.config.mjs
-    ├── 📄 next-env.d.ts
-    ├── 📄 next.config.ts
-    ├── 📄 package-lock.json
-    ├── 📄 package.json
-    ├── 📄 postcss.config.mjs
-    └── 📄 tsconfig.json
+├── 📁 .next/ 🚫 (auto-hidden)
+├── 📁 node_modules/ 🚫 (auto-hidden)
+├── 📁 public/
+│ ├── 🖼️ file.svg
+│ ├── 🖼️ globe.svg
+│ ├── 🖼️ next.svg
+│ ├── 🖼️ vercel.svg
+│ └── 🖼️ window.svg
+├── 📁 src/
+│ ├── 📁 app/
+│ │ ├── 📁 (auth)/
+│ │ │ ├── 📁 dashboard/
+│ │ │ │ └── 📄 page.tsx
+│ │ │ ├── 📁 profile/
+│ │ │ │ └── 📄 page.tsx
+│ │ │ ├── 📁 users/
+│ │ │ │ ├── 📁 [userId]/
+│ │ │ │ │ └── 📄 page.tsx
+│ │ │ │ └── 📄 page.tsx
+│ │ │ └── 📄 layout.tsx
+│ │ ├── 📁 complete-profile/
+│ │ │ └── 📄 page.tsx
+│ │ ├── 📁 signin/
+│ │ │ └── 📄 page.tsx
+│ │ ├── 📁 signup/
+│ │ │ └── 📄 page.tsx
+│ │ ├── 🖼️ favicon.ico
+│ │ ├── 🎨 globals.css
+│ │ ├── 📄 layout.tsx
+│ │ └── 📄 page.tsx
+│ ├── 📁 components/
+│ │ ├── 📁 ui/
+│ │ │ ├── 📄 alert.tsx
+│ │ │ ├── 📄 button.tsx
+│ │ │ ├── 📄 card.tsx
+│ │ │ ├── 📄 dropdown-menu.tsx
+│ │ │ ├── 📄 input.tsx
+│ │ │ ├── 📄 label.tsx
+│ │ │ └── 📄 select.tsx
+│ │ ├── 📄 Navbar.tsx
+│ │ ├── 📄 PrivateRoute.tsx
+│ │ ├── 📄 Sidebar.tsx
+│ │ ├── 📄 ThemeProvider.tsx
+│ │ └── 📄 ThemeToggle.tsx
+│ └── 📁 lib/
+│ ├── 📄 api.ts
+│ └── 📄 utils.ts
+├── 🔒 .env 🚫 (auto-hidden)
+├── 📄 .eslintrc.json
+├── 🚫 .gitignore
+├── 📖 README.md
+├── 📄 components.json
+├── 📄 eslint.config.mjs
+├── 📄 next-env.d.ts
+├── 📄 next.config.ts
+├── 📄 package-lock.json
+├── 📄 package.json
+├── 📄 postcss.config.mjs
+└── 📄 tsconfig.json
+
 ```
 
 ## Authentication Flow
@@ -185,3 +190,4 @@ The frontend connects to the backend API at `http://localhost:5000`:
 4. Test all functionality before committing
 
 Your frontend is now ready to connect with the backend! 🎉
+```
