@@ -49,26 +49,66 @@ Make sure your backend server is running on `http://localhost:5000` before testi
 
 ## Project Structure
 
-```
-src/
-├── app/
-│   ├── (auth)/           # Authenticated pages layout
-│   ├── globals.css       # Global styles
-│   ├── layout.tsx        # Root layout with Navbar
-│   ├── page.tsx          # Home page
-│   ├── signin/
-│   │   └── page.tsx      # Sign In page
-│   ├── signup/
-│   │   └── page.tsx      # Sign Up page
-│   ├── profile/
-│   │   └── page.tsx      # Profile page
-│   └── users/
-│       └── page.tsx      # Users page
-├── components/
-│   ├── Navbar.tsx        # Navigation bar
-│   ├── Sidebar.tsx       # Sidebar for authenticated users
-│   └── ui/               # shadcn/ui components
-└── lib/                  # Utility functions
+📁 frontend/
+    ├── 📁 .next/ 🚫 (auto-hidden)
+    ├── 📁 node_modules/ 🚫 (auto-hidden)
+    ├── 📁 public/
+    │   ├── 🖼️ file.svg
+    │   ├── 🖼️ globe.svg
+    │   ├── 🖼️ next.svg
+    │   ├── 🖼️ vercel.svg
+    │   └── 🖼️ window.svg
+    ├── 📁 src/
+    │   ├── 📁 app/
+    │   │   ├── 📁 (auth)/
+    │   │   │   ├── 📁 dashboard/
+    │   │   │   │   └── 📄 page.tsx
+    │   │   │   ├── 📁 profile/
+    │   │   │   │   └── 📄 page.tsx
+    │   │   │   ├── 📁 users/
+    │   │   │   │   ├── 📁 [userId]/
+    │   │   │   │   │   └── 📄 page.tsx
+    │   │   │   │   └── 📄 page.tsx
+    │   │   │   └── 📄 layout.tsx
+    │   │   ├── 📁 complete-profile/
+    │   │   │   └── 📄 page.tsx
+    │   │   ├── 📁 signin/
+    │   │   │   └── 📄 page.tsx
+    │   │   ├── 📁 signup/
+    │   │   │   └── 📄 page.tsx
+    │   │   ├── 🖼️ favicon.ico
+    │   │   ├── 🎨 globals.css
+    │   │   ├── 📄 layout.tsx
+    │   │   └── 📄 page.tsx
+    │   ├── 📁 components/
+    │   │   ├── 📁 ui/
+    │   │   │   ├── 📄 alert.tsx
+    │   │   │   ├── 📄 button.tsx
+    │   │   │   ├── 📄 card.tsx
+    │   │   │   ├── 📄 dropdown-menu.tsx
+    │   │   │   ├── 📄 input.tsx
+    │   │   │   ├── 📄 label.tsx
+    │   │   │   └── 📄 select.tsx
+    │   │   ├── 📄 Navbar.tsx
+    │   │   ├── 📄 PrivateRoute.tsx
+    │   │   ├── 📄 Sidebar.tsx
+    │   │   ├── 📄 ThemeProvider.tsx
+    │   │   └── 📄 ThemeToggle.tsx
+    │   └── 📁 lib/
+    │       ├── 📄 api.ts
+    │       └── 📄 utils.ts
+    ├── 🔒 .env 🚫 (auto-hidden)
+    ├── 📄 .eslintrc.json
+    ├── 🚫 .gitignore
+    ├── 📖 README.md
+    ├── 📄 components.json
+    ├── 📄 eslint.config.mjs
+    ├── 📄 next-env.d.ts
+    ├── 📄 next.config.ts
+    ├── 📄 package-lock.json
+    ├── 📄 package.json
+    ├── 📄 postcss.config.mjs
+    └── 📄 tsconfig.json
 ```
 
 ## Authentication Flow
